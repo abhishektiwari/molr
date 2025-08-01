@@ -7,7 +7,7 @@ represents a specific selection criterion or operation.
 """
 
 from abc import ABC, abstractmethod
-from typing import Any, List, Optional, Set, Union
+from typing import Any, List, Optional, Set, Union, cast
 
 import numpy as np
 
@@ -62,7 +62,7 @@ class AllExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Return True for all atoms."""
-        return np.ones(structure.n_atoms, dtype=bool)  # type: ignore[no-any-return]
+        return cast(np.ndarray, np.ones(structure.n_atoms, dtype=bool))
 
     def __repr__(self) -> str:
         return "all"
@@ -73,7 +73,7 @@ class NoneExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Return False for all atoms."""
-        return np.zeros(structure.n_atoms, dtype=bool)  # type: ignore[no-any-return]
+        return cast(np.ndarray, np.zeros(structure.n_atoms, dtype=bool))
 
     def __repr__(self) -> str:
         return "none"
@@ -478,7 +478,7 @@ class WithinExpression(SelectionExpression):
         ref_indices = np.where(ref_mask)[0]
 
         if len(ref_indices) == 0:
-            return np.zeros(structure.n_atoms, dtype=bool)  # type: ignore[no-any-return]
+            return cast(np.ndarray, np.zeros(structure.n_atoms, dtype=bool))
 
         # Use Structure's spatial indexing if available
         if structure.has_spatial_index():
@@ -584,7 +584,7 @@ class CenterOfGeometryExpression(SelectionExpression):
         ref_indices = np.where(ref_mask)[0]
 
         if len(ref_indices) == 0:
-            return np.zeros(structure.n_atoms, dtype=bool)  # type: ignore[no-any-return]
+            return cast(np.ndarray, np.zeros(structure.n_atoms, dtype=bool))
 
         if structure.has_spatial_index():
             # Use Structure's spatial indexing
