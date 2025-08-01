@@ -25,6 +25,8 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
 ]
 dependencies = [
     "numpy>=1.20.0",
@@ -62,7 +64,8 @@ Issues = "https://github.com/abhishektiwari/molr/issues"
 
 [tool.setuptools_scm]
 write_to = "molr/_version.py"
-version_scheme = "guess-next-dev"
+fallback_version = "0.1.0.dev0"
+version_scheme = "no-guess-dev"
 local_scheme = "no-local-version"
 
 [tool.setuptools.packages.find]
