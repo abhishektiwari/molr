@@ -18,13 +18,15 @@ requirements:
     - python >=3.8
     - pip
     - setuptools
+    - numpy >=1.20.0
+    - scipy >=1.7.0
+    - pyparsing >=3.0.0
   run:
     - python >=3.8
     - numpy >=1.20.0
     - scipy >=1.7.0
     - pyparsing >=3.0.0
-    - pdbreader >=0.1.0
-    - mmcif >=0.1.0
+    - pip
 
 test:
   imports:
@@ -35,6 +37,7 @@ test:
     - molr.constants
     - molr.bond_detection
   commands:
+    - pip install pdbreader>=0.1.0 mmcif>=0.92.0
     - python -c "import molr; print('MolR version:', molr.__version__)"
 
 about:
