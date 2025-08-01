@@ -43,6 +43,11 @@ dev = [
     "flake8>=6.0.0",
     "isort>=5.0.0",
 ]
+build = [
+    "build>=0.8.0",
+    "twine>=4.0.0",
+    "setuptools-scm>=6.2.0",
+]
 docs = [
     "sphinx>=5.0.0",
     "sphinx-rtd-theme>=1.0.0",
