@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel", "numpy>=1.20.0"]
+requires = ["setuptools>=61.0", "wheel", "numpy>=1.20.0", "setuptools_scm[toml]>=6.2", "pyparsing>=3.0.0", "pdbreader>=0.1.0", "mmcif>=0.1.0", "scipy>=1.7.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
-    {name = "Abhishek Tiwari"},
+    {name = "Abhishek Tiwari", email = "molr@abhishek-tiwari.com"},
 ]
 keywords = ["molecular", "structure", "chemistry", "bioinformatics", "pdb", "spatial-indexing"]
 classifiers = [
@@ -55,8 +55,8 @@ Documentation = "https://molr.abhishek-tiwari.com/"
 Repository = "https://github.com/abhishektiwari/molr.git"
 Issues = "https://github.com/abhishektiwari/molr/issues"
 
-[tool.setuptools.dynamic]
-version = {attr = "molr.__version__"}
+[tool.setuptools_scm]
+write_to = "molr/_version.py"
 
 [tool.setuptools.packages.find]
 exclude = ["tests*", "experiments*", "docs*"]
