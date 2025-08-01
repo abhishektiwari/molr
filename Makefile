@@ -1,6 +1,6 @@
 # MolR Development Makefile
 
-.PHONY: help install install-dev test test-all test-fast test-unit test-integration test-performance test-coverage clean lint format type-check docs docs-watch build publish
+.PHONY: help install install-dev test test-all test-fast test-unit test-integration test-performance test-coverage clean lint format type-check docs docs-watch build publish conda-build conda-install conda-clean conda-test
 
 # Default target
 help:
@@ -25,6 +25,10 @@ help:
 	@echo "Building:"
 	@echo "  build         Build Python package"
 	@echo "  publish       Publish to PyPI (requires credentials)"
+	@echo "  conda-build   Build conda package"
+	@echo "  conda-install Install conda package locally"
+	@echo "  conda-test    Build, install and test conda package"
+	@echo "  conda-clean   Clean conda build artifacts"
 	@echo ""
 	@echo "Development:"
 	@echo "  clean         Clean build artifacts"
@@ -102,6 +106,8 @@ clean:
 	find . -name "*.pyc" -delete
 	find . -name "*.pyo" -delete
 	find . -name ".DS_Store" -delete
+	rm -rf conda-build-output/
+	rm -f molr/_version.py
 
 # Documentation
 docs:
@@ -172,3 +178,42 @@ version:
 example:
 	@echo "Running example analysis..."
 	@python -c "import molr; s = molr.Structure(10); print(s)"
+
+# Conda package building
+conda-build:
+	@echo "Building conda package..."
+	@if ! command -v conda-build >/dev/null 2>&1; then \
+		echo "Error: conda-build not found. Install with: conda install conda-build"; \
+		exit 1; \
+	fi
+	@# Generate version file for build
+	@VERSION=$$(python -c "import molr; print(molr.__version__)") && \
+	echo "version = \"$$VERSION\"" > molr/_version.py
+	@# Build package
+	conda build conda --output-folder conda-build-output
+	@echo "Conda package built successfully!"
+	@echo "Package location:"
+	@find conda-build-output -name "molr-*.tar.bz2" -o -name "molr-*.conda" | head -1
+
+conda-install: conda-build
+	@echo "Installing conda package locally..."
+	@PACKAGE_PATH=$$(find conda-build-output -name "molr-*.tar.bz2" -o -name "molr-*.conda" | head -1) && \
+	if [ -n "$$PACKAGE_PATH" ]; then \
+		conda install "$$PACKAGE_PATH" --use-local; \
+		echo "Conda package installed successfully!"; \
+	else \
+		echo "Error: No conda package found to install"; \
+		exit 1; \
+	fi
+
+conda-clean:
+	@echo "Cleaning conda build artifacts..."
+	rm -rf conda-build-output/
+	rm -f molr/_version.py
+	@echo "Conda build artifacts cleaned!"
+
+conda-test: conda-install
+	@echo "Testing installed conda package..."
+	@# Test in a new shell to avoid import conflicts
+	python -c "import molr; print('MolR version:', molr.__version__); print('Import successful!')"
+	@echo "Conda package test passed!"

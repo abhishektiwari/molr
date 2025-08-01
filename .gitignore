@@ -166,3 +166,6 @@ tmp/
 # Claude code
 .claude/
 CLAUDE.md
+
+# Version
+_version.py
