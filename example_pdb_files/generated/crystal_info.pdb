@@ -1,0 +1,38 @@
+HEADER    CRYSTAL STRUCTURE WITH UNIT CELL PARAMETERS             20-JUL-25   XXXX
+TITLE     TEST FILE FOR PERIODIC BOUNDARIES AND CRYSTALLOGRAPHIC DATA
+REMARK   2 RESOLUTION.    1.20 ANGSTROMS.
+REMARK   3
+REMARK   3 REFINEMENT.
+REMARK   3   PROGRAM     : EXAMPLE
+REMARK   3   AUTHORS     : HBAT
+REMARK   3
+REMARK   4 SPACE GROUP: P21/c
+REMARK   4 UNIT CELL: a=78.45 b=45.32 c=123.67 alpha=90.0 beta=98.5 gamma=90.0
+CRYST1   78.450   45.320  123.670  90.00  98.50  90.00 P 1 21/c 1    4
+ORIGX1      1.000000  0.000000  0.000000        0.00000
+ORIGX2      0.000000  1.000000  0.000000        0.00000
+ORIGX3      0.000000  0.000000  1.000000        0.00000
+SCALE1      0.012748  0.000000  0.001847        0.00000
+SCALE2      0.000000  0.022075  0.000000        0.00000
+SCALE3      0.000000  0.000000  0.008156        0.00000
+ATOM      1  N   ALA A   1      10.500  12.750  25.000  1.00 15.00           N
+ATOM      2  CA  ALA A   1      11.850  12.750  25.600  1.00 15.00           C
+ATOM      3  C   ALA A   1      13.000  12.750  24.600  1.00 15.00           C
+ATOM      4  O   ALA A   1      13.100  11.950  23.700  1.00 15.00           O
+ATOM      5  CB  ALA A   1      12.000  11.500  26.450  1.00 15.00           C
+ATOM      6  N   GLY A   2      13.950  13.650  24.700  1.00 15.00           N
+ATOM      7  CA  GLY A   2      15.100  13.650  23.800  1.00 15.00           C
+ATOM      8  C   GLY A   2      16.400  13.650  24.550  1.00 15.00           C
+ATOM      9  O   GLY A   2      16.500  14.450  25.450  1.00 15.00           O
+ATOM     10  N   VAL A   3      17.400  12.750  24.300  1.00 15.00           N
+ATOM     11  CA  VAL A   3      18.700  12.750  24.950  1.00 15.00           C
+ATOM     12  C   VAL A   3      19.850  12.750  23.950  1.00 15.00           C
+ATOM     13  O   VAL A   3      19.950  11.950  23.050  1.00 15.00           O
+ATOM     14  CB  VAL A   3      18.850  11.500  25.800  1.00 15.00           C
+ATOM     15  CG1 VAL A   3      20.200  11.500  26.500  1.00 15.00           C
+ATOM     16  CG2 VAL A   3      17.700  11.500  26.800  1.00 15.00           C
+TER      17      VAL A   3
+HETATM   18  O   HOH S 101       5.000   5.000   5.000  1.00 25.00           O
+HETATM   19  O   HOH S 102      73.000  40.000 118.000  1.00 25.00           O
+HETATM   20  O   HOH S 103      39.000  22.000  61.000  1.00 25.00           O
+END

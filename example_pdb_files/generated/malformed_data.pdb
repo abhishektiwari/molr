@@ -1,0 +1,46 @@
+HEADER    MALFORMED PDB FOR ERROR HANDLING TESTS                  20-JUL-25   XXXX
+TITLE     TEST FILE WITH VARIOUS FORMAT ERRORS AND MISSING FIELDS
+REMARK   2 RESOLUTION.    2.50 ANGSTROMS.
+REMARK   3
+REMARK   3 THIS FILE CONTAINS INTENTIONAL ERRORS FOR TESTING:
+REMARK   3   - MISSING COORDINATES
+REMARK   3   - INVALID ATOM NAMES
+REMARK   3   - WRONG COLUMN POSITIONS
+REMARK   3   - INVALID RESIDUE NUMBERS
+REMARK   3   - MISSING OCCUPANCY/B-FACTOR
+CRYST1   50.000   50.000   50.000  90.00  90.00  90.00 P 1           1
+ATOM      1  N   ALA A   1      25.000  25.000  25.000  1.00 20.00           N
+ATOM      2  CA  ALA A   1      26.250  25.000              1.00 20.00           C
+ATOM      3  C   ALA A   1      27.500  25.000  24.900  1.00              C
+ATOM      4  O   ALA A        27.600  24.500  23.800  1.00 20.00           O
+ATOM      5  CB  ALA A   1      26.250  23.750  26.600                      C
+ATOM      6  XXXXX ALA A   2      28.000  25.000  25.000  1.00 20.00           N
+ATOM      7  CA  GLY A   2      29.250  25.000  25.750  1.00 20.00           C
+ATOM      8  C   GLY A   2      30.500  25.000  24.900  1.00 20.00           C
+ATOM      9  O   GLY A   2      30.600  24.500  23.800  1.00 20.00           O
+ATOM     10  N   VAL A ABC      31.500  25.500  25.400  1.00 20.00           N
+ATOM     11  CA  VAL A   3      32.750  25.500  24.650  1.00 20.00           C
+ATOM     12  C   VAL A   3      34.000  25.500  25.500  1.00 20.00           C
+ATOM     13  O   VAL A   3      34.100  26.000  26.600  1.00 20.00           O
+ATOM  14    CB  VAL A   3      32.750  24.250  23.800  1.00 20.00           C
+ATOM     15  CG1 VAL A   3      31.500  24.250  22.950  1.00 20.00           C
+ATOM     16  CG2 VAL A   3      34.000  24.250  22.950  1.00 20.00           C
+ATOM     17  N   SER A   4      35.000  25.000  25.100  1.00 20.00           N
+ATOM     18  CA  SER A   4      36.250 25.000 24.350  1.00 20.00           C
+ATOM     19  C   SER A   4      37.500  25.000  25.200  1.00 20.00           C
+ATOM     20  O   SER A   4      37.600  25.500  26.300  1.00 20.00           O
+ATOM     21  CB  SER A   4      36.250  23.750  23.500  1.00 20.00           C
+ATOM     22  OG  SER A   4      37.450  23.750  22.750  1.00 20.00           O
+ATOM     23  N   THR A999      38.500  24.500  24.800  1.00 20.00           N
+ATOM     24  CA  THR A   5      39.750  24.500  25.550  1.00 20.00           C
+ATOM     25              40.000  24.500  24.700  1.00 20.00           C
+ATOM     26  O   THR A   5      40.100  25.000  25.800  1.00 20.00           O
+ATOM     27  CB  THR A   5      39.750  23.250  26.400  1.00 20.00           C
+ATOM     28  OG1 THR A   5      38.550  23.250  27.150  1.00 20.00           O
+ATOM     29  CG2 THR A   5      41.000  23.250  27.250  1.00 20.00           C
+TER      30      THR A   5
+HETATM   31  ZN  ZN  A        42.000  25.000  25.000  1.00 15.00          ZN
+HETATM   32      MG  A 102      44.000  25.000  25.000  1.00 15.00          MG
+HETATM   33  O   HOH A 201      30.000  30.000  30.000  1.00              O
+HETATM   34  O   HOH A XXX      32.000  30.000  30.000  1.00 30.00           O
+END

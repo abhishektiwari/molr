@@ -1,0 +1,72 @@
+HEADER    EXAMPLE PDB WITH ALTERNATE CONFORMATIONS                20-JUL-25   XXXX
+TITLE     PROTEIN SEGMENT WITH ALTERNATE LOCATIONS A AND B
+REMARK   2 RESOLUTION.    1.50 ANGSTROMS.
+REMARK   3
+REMARK   3 REFINEMENT.
+REMARK   3   PROGRAM     : EXAMPLE
+REMARK   3   AUTHORS     : HBAT
+REMARK   3
+REMARK   4 ALTERNATE CONFORMATIONS PRESENT FOR:
+REMARK   4   - SER 10: FULL SIDE CHAIN (CB, OG)
+REMARK   4   - LEU 11: FULL RESIDUE (ALL ATOMS)
+REMARK   4   - ASP 12: SIDE CHAIN ONLY (CG, OD1, OD2)
+CRYST1   50.000   50.000   50.000  90.00  90.00  90.00 P 1           1
+ORIGX1      1.000000  0.000000  0.000000        0.00000
+ORIGX2      0.000000  1.000000  0.000000        0.00000
+ORIGX3      0.000000  0.000000  1.000000        0.00000
+SCALE1      0.020000  0.000000  0.000000        0.00000
+SCALE2      0.000000  0.020000  0.000000        0.00000
+SCALE3      0.000000  0.000000  0.020000        0.00000
+MODEL        1
+ATOM      1  N   GLY A   9      25.000  25.000  25.000  1.00 15.00           N
+ATOM      2  CA  GLY A   9      26.200  25.000  25.800  1.00 15.00           C
+ATOM      3  C   GLY A   9      27.450  25.000  24.950  1.00 15.00           C
+ATOM      4  O   GLY A   9      27.550  24.400  23.900  1.00 15.00           O
+ATOM      5  N   SER A  10      28.450  25.600  25.450  1.00 20.00           N
+ATOM      6  CA  SER A  10      29.750  25.600  24.800  1.00 20.00           C
+ATOM      7  C   SER A  10      30.900  25.600  25.750  1.00 20.00           C
+ATOM      8  O   SER A  10      31.000  26.200  26.800  1.00 20.00           O
+ATOM      9  CB ASER A  10      29.750  26.850  23.950  0.60 25.00           C
+ATOM     10  CB BSER A  10      29.850  24.350  23.950  0.40 25.00           C
+ATOM     11  OG ASER A  10      28.550  26.850  23.200  0.60 25.00           O
+ATOM     12  OG BSER A  10      31.050  24.350  23.200  0.40 25.00           O
+ATOM     13  N   LEU A  11      31.850  25.000  25.350  1.00 20.00           N
+ATOM     14  CA ALEU A  11      33.050  25.000  26.100  0.55 25.00           C
+ATOM     15  CA BLEU A  11      33.050  24.900  26.150  0.45 25.00           C
+ATOM     16  C  ALEU A  11      34.300  25.000  25.250  0.55 25.00           C
+ATOM     17  C  BLEU A  11      34.250  25.100  25.300  0.45 25.00           C
+ATOM     18  O  ALEU A  11      34.400  24.400  24.200  0.55 25.00           O
+ATOM     19  O  BLEU A  11      34.300  24.600  24.200  0.45 25.00           O
+ATOM     20  CB ALEU A  11      33.050  23.750  26.950  0.55 25.00           C
+ATOM     21  CB BLEU A  11      33.150  23.550  26.850  0.45 25.00           C
+ATOM     22  CG ALEU A  11      31.850  23.750  27.850  0.55 25.00           C
+ATOM     23  CG BLEU A  11      32.000  23.200  27.750  0.45 25.00           C
+ATOM     24  CD1ALEU A  11      31.850  22.500  28.700  0.55 25.00           C
+ATOM     25  CD1BLEU A  11      32.100  21.850  28.450  0.45 25.00           C
+ATOM     26  CD2ALEU A  11      30.600  23.750  27.000  0.55 25.00           C
+ATOM     27  CD2BLEU A  11      30.750  23.200  26.900  0.45 25.00           C
+ATOM     28  N   ASP A  12      35.300  25.600  25.700  1.00 20.00           N
+ATOM     29  CA  ASP A  12      36.550  25.600  24.950  1.00 20.00           C
+ATOM     30  C   ASP A  12      37.700  25.600  25.900  1.00 20.00           C
+ATOM     31  O   ASP A  12      37.800  26.200  26.950  1.00 20.00           O
+ATOM     32  CB  ASP A  12      36.550  26.850  24.100  1.00 20.00           C
+ATOM     33  CG AASP A  12      35.350  26.850  23.200  0.70 25.00           C
+ATOM     34  CG BASP A  12      37.850  27.000  23.350  0.30 25.00           C
+ATOM     35  OD1AASP A  12      34.400  27.550  23.500  0.70 25.00           O
+ATOM     36  OD1BASP A  12      38.900  26.450  23.650  0.30 25.00           O
+ATOM     37  OD2AASP A  12      35.350  26.150  22.200  0.70 25.00           O
+ATOM     38  OD2BASP A  12      37.850  27.750  22.400  0.30 25.00           O
+ATOM     39  N   VAL A  13      38.650  25.000  25.500  1.00 20.00           N
+ATOM     40  CA  VAL A  13      39.850  25.000  26.300  1.00 20.00           C
+ATOM     41  C   VAL A  13      41.100  25.000  25.450  1.00 20.00           C
+ATOM     42  O   VAL A  13      41.200  24.400  24.400  1.00 20.00           O
+ATOM     43  CB  VAL A  13      39.850  23.750  27.150  1.00 20.00           C
+ATOM     44  CG1 VAL A  13      41.100  23.750  28.000  1.00 20.00           C
+ATOM     45  CG2 VAL A  13      38.600  23.750  28.000  1.00 20.00           C
+TER      46      VAL A  13
+HETATM   47  O   HOH A 101      30.000  30.000  25.000  1.00 30.00           O
+HETATM   48  O   HOH A 102      32.000  30.000  25.000  1.00 30.00           O
+HETATM   49  O  AHOH A 103      34.000  30.000  25.000  0.60 35.00           O
+HETATM   50  O  BHOH A 103      34.200  29.800  25.200  0.40 35.00           O
+ENDMDL
+END
