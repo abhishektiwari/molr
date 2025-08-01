@@ -57,7 +57,11 @@ class DefaultBondDetector:
         # Step 1: Include file-based bonds if available and requested
         if use_file_bonds and structure.file_bonds is not None:
             for i in range(len(structure.file_bonds)):
-                atom1, atom2 = structure.file_bonds[i]
+                bond_pair = structure.file_bonds[i]
+                if isinstance(bond_pair, tuple):
+                    atom1, atom2 = bond_pair[0], bond_pair[1]
+                else:
+                    continue  # Skip if not a tuple
                 # Validate indices
                 if 0 <= atom1 < structure.n_atoms and 0 <= atom2 < structure.n_atoms:
                     bonds.add_bond(
@@ -221,7 +225,7 @@ class DefaultBondDetector:
         Returns:
             Dictionary mapping (res_name, res_id, chain_id) to list of atom indices
         """
-        residue_groups = {}
+        residue_groups: Dict[Tuple[str, int, str], List[int]] = {}
 
         for i in range(structure.n_atoms):
             key = (structure.res_name[i], structure.res_id[i], structure.chain_id[i])

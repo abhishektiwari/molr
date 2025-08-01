@@ -6,7 +6,7 @@ from Chemical Component Dictionary (CCD) data using the CCDDataManager.
 """
 
 import os
-from typing import Dict, List, Union
+from typing import Any, Dict, List, Optional, Union
 
 from .ccd_analyzer import CCDDataManager
 
@@ -29,7 +29,7 @@ class CCDConstantsGenerator:
         self.ccd_manager = ccd_manager
 
     def write_residue_bonds_constants(
-        self, residue_list: List[str], output_path: str = None
+        self, residue_list: List[str], output_path: Optional[str] = None
     ) -> bool:
         """
         Generate a Python constants file with residue bond information.
@@ -72,7 +72,7 @@ class CCDConstantsGenerator:
             print(f"Error writing constants file: {e}")
             return False
 
-    def _write_file_header(self, f):
+    def _write_file_header(self, f: Any) -> None:
         """Write the file header and imports."""
         f.write('"""\n')
         f.write("Residue Bond Information Constants\n\n")
@@ -87,7 +87,7 @@ class CCDConstantsGenerator:
         f.write('"""\n\n')
         f.write("from typing import Any, Dict, List, Union\n\n")
 
-    def _write_main_constants(self, f, residue_bonds: Dict[str, Dict]):
+    def _write_main_constants(self, f: Any, residue_bonds: Dict[str, Dict]) -> None:
         """Write the main RESIDUE_BONDS dictionary."""
         f.write("# Bond information for standard residues\n")
         f.write("RESIDUE_BONDS: Dict[str, Dict] = {\n")
@@ -112,7 +112,7 @@ class CCDConstantsGenerator:
 
         f.write("}\n\n")
 
-    def _write_helper_functions(self, f):
+    def _write_helper_functions(self, f: Any) -> None:
         """Write helper functions for accessing bond data."""
         # get_residue_bonds function
         f.write(
@@ -165,7 +165,7 @@ class CCDConstantsGenerator:
         )
         f.write("    return isinstance(aromatic_count, int) and aromatic_count > 0\n\n")
 
-    def _write_summary_constants(self, f, residue_bonds: Dict[str, Dict]):
+    def _write_summary_constants(self, f: Any, residue_bonds: Dict[str, Dict]) -> None:
         """Write summary information constants."""
         f.write("# Summary information\n")
         total_residues = len(residue_bonds)
@@ -178,14 +178,14 @@ class CCDConstantsGenerator:
         f.write(f"AROMATIC_RESIDUES_COUNT = {aromatic_residues}\n")
         f.write(f"TOTAL_BONDS_COUNT = {total_bonds}\n\n")
 
-    def _write_residue_list(self, f, residue_bonds: Dict[str, Dict]):
+    def _write_residue_list(self, f: Any, residue_bonds: Dict[str, Dict]) -> None:
         """Write the list of available residues."""
         f.write("RESIDUES_WITH_BOND_DATA: List[str] = [\n")
         for residue in sorted(residue_bonds.keys()):
             f.write(f'    "{residue}",\n')
         f.write("]\n")
 
-    def generate_analysis_report(self, residue_list: List[str]) -> Dict:
+    def generate_analysis_report(self, residue_list: List[str]) -> Dict[str, Any]:
         """
         Generate a comprehensive analysis report for the given residues.
 
@@ -199,7 +199,7 @@ class CCDConstantsGenerator:
 
         available_components = self.ccd_manager.get_available_components()
 
-        report = {
+        report: Dict[str, Any] = {
             "total_ccd_components": len(available_components),
             "requested_residues": len(residue_list),
             "found_residues": 0,
@@ -234,7 +234,7 @@ class CCDConstantsGenerator:
 
         return report
 
-    def print_analysis_report(self, report: Dict):
+    def print_analysis_report(self, report: Dict[str, Any]) -> None:
         """
         Print a formatted analysis report.
 

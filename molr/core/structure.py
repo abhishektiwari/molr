@@ -5,7 +5,7 @@ This module provides the Structure class,
 for efficient storage and manipulation of molecular structures using NumPy arrays.
 """
 
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Tuple, Union, TYPE_CHECKING
 
 import numpy as np
 
@@ -29,6 +29,9 @@ from ..constants.pdb_constants import (
     RNA_RESIDUES,
     WATER_MOLECULES,
 )
+
+if TYPE_CHECKING:
+    from .bond_list import BondList
 
 
 class Structure:
@@ -128,7 +131,7 @@ class Structure:
         Returns:
             NumPy array of atomic coordinates
         """
-        return self._coord
+        return self._coord  # type: ignore[no-any-return]
 
     @coord.setter
     def coord(self, value: np.ndarray) -> None:
@@ -450,7 +453,7 @@ class Structure:
         neighbor_indices = spatial_index.query_ball_point(query_point, radius)
 
         # Remove query atom from results
-        return np.array([idx for idx in neighbor_indices if idx != atom_idx])
+        return np.array([idx for idx in neighbor_indices if idx != atom_idx])  # type: ignore[no-any-return]
 
     def get_atoms_within_sphere(self, center: np.ndarray, radius: float) -> np.ndarray:
         """
@@ -472,7 +475,7 @@ class Structure:
 
         spatial_index = self._ensure_spatial_index()
         neighbor_indices = spatial_index.query_ball_point(center, radius)
-        return np.array(neighbor_indices)
+        return np.array(neighbor_indices)  # type: ignore[no-any-return]
 
     def get_atoms_within_cog_sphere(
         self, selection: np.ndarray, radius: float
@@ -492,7 +495,7 @@ class Structure:
             >>> nearby = structure.get_atoms_within_cog_sphere(active_site, 10.0)
         """
         if len(selection) == 0:
-            return np.array([])
+            return np.array([])  # type: ignore[no-any-return]
 
         # Handle both boolean masks and index arrays
         if selection.dtype == bool:
@@ -504,7 +507,7 @@ class Structure:
             selected_coords = self.coord[selection]
 
         if len(selected_coords) == 0:
-            return np.array([])
+            return np.array([])  # type: ignore[no-any-return]
 
         # Calculate center of geometry
         cog = np.mean(selected_coords, axis=0)

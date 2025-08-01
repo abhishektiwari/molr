@@ -62,7 +62,7 @@ class AllExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Return True for all atoms."""
-        return np.ones(structure.n_atoms, dtype=bool)
+        return np.ones(structure.n_atoms, dtype=bool)  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return "all"
@@ -73,7 +73,7 @@ class NoneExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Return False for all atoms."""
-        return np.zeros(structure.n_atoms, dtype=bool)
+        return np.zeros(structure.n_atoms, dtype=bool)  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return "none"
@@ -95,7 +95,7 @@ class ElementExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Select atoms matching the specified elements."""
-        return np.isin(structure.element, self.elements)
+        return np.isin(structure.element, self.elements)  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         if len(self.elements) == 1:
@@ -119,7 +119,7 @@ class AtomNameExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Select atoms matching the specified names."""
-        return np.isin(structure.atom_name, self.names)
+        return np.isin(structure.atom_name, self.names)  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         if len(self.names) == 1:
@@ -143,7 +143,7 @@ class ResidueNameExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Select atoms in residues matching the specified names."""
-        return np.isin(structure.res_name, self.resnames)
+        return np.isin(structure.res_name, self.resnames)  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         if len(self.resnames) == 1:
@@ -169,7 +169,7 @@ class ResidueIdExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Select atoms in residues matching the specified IDs."""
-        return np.isin(structure.res_id, self.resids)
+        return np.isin(structure.res_id, self.resids)  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         if len(self.resids) == 1:
@@ -198,7 +198,7 @@ class ChainExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Select atoms in the specified chains."""
-        return np.isin(structure.chain_id, self.chains)
+        return np.isin(structure.chain_id, self.chains)  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         if len(self.chains) == 1:
@@ -236,7 +236,7 @@ class ProteinExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Select atoms that are part of protein residues."""
-        return structure.residue_type == "PROTEIN"
+        return structure.residue_type == "PROTEIN"  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return "protein"
@@ -247,7 +247,7 @@ class NucleicExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Select atoms that are part of DNA or RNA."""
-        return (structure.residue_type == "DNA") | (structure.residue_type == "RNA")
+        return (structure.residue_type == "DNA") | (structure.residue_type == "RNA")  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return "nucleic"
@@ -258,7 +258,7 @@ class DNAExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Select atoms that are part of DNA."""
-        return structure.residue_type == "DNA"
+        return structure.residue_type == "DNA"  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return "dna"
@@ -269,7 +269,7 @@ class RNAExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Select atoms that are part of RNA."""
-        return structure.residue_type == "RNA"
+        return structure.residue_type == "RNA"  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return "rna"
@@ -304,7 +304,7 @@ class WaterExpression(SelectionExpression):
         """Select atoms that are part of water molecules."""
         from ..constants.pdb_constants import WATER_MOLECULES
 
-        return np.isin(structure.res_name, WATER_MOLECULES)
+        return np.isin(structure.res_name, WATER_MOLECULES)  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return "water"
@@ -329,7 +329,7 @@ class AndExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Return atoms selected by both expressions."""
-        return self.left.evaluate(structure) & self.right.evaluate(structure)
+        return self.left.evaluate(structure) & self.right.evaluate(structure)  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return f"({self.left!r} and {self.right!r})"
@@ -351,7 +351,7 @@ class OrExpression(SelectionExpression):
 
     def evaluate(self, structure: Structure) -> np.ndarray:
         """Return atoms selected by either expression."""
-        return self.left.evaluate(structure) | self.right.evaluate(structure)
+        return self.left.evaluate(structure) | self.right.evaluate(structure)  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return f"({self.left!r} or {self.right!r})"
@@ -405,7 +405,7 @@ class IndexExpression(SelectionExpression):
             mask[list(self.indices)] = True
         else:
             mask[self.indices] = True
-        return mask
+        return mask  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         if isinstance(self.indices, slice):
@@ -448,7 +448,7 @@ class ByResidueExpression(SelectionExpression):
         selected_residues = np.unique(structure.res_id[atom_mask])
 
         # Select all atoms in those residues
-        return np.isin(structure.res_id, selected_residues)
+        return np.isin(structure.res_id, selected_residues)  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return f"byres ({self.atom_selection!r})"
@@ -478,7 +478,7 @@ class WithinExpression(SelectionExpression):
         ref_indices = np.where(ref_mask)[0]
 
         if len(ref_indices) == 0:
-            return np.zeros(structure.n_atoms, dtype=bool)
+            return np.zeros(structure.n_atoms, dtype=bool)  # type: ignore[no-any-return]
 
         # Use Structure's spatial indexing if available
         if structure.has_spatial_index():
@@ -490,7 +490,7 @@ class WithinExpression(SelectionExpression):
                 result_mask[neighbors] = True
                 result_mask[ref_idx] = True  # Include reference atoms themselves
 
-            return result_mask
+            return result_mask  # type: ignore[no-any-return]
         else:
             # Fall back to brute force calculation
             result_mask = np.zeros(structure.n_atoms, dtype=bool)
@@ -553,11 +553,11 @@ class SphericalExpression(SelectionExpression):
             atom_indices = structure.get_atoms_within_sphere(self.center, self.radius)
             result_mask = np.zeros(structure.n_atoms, dtype=bool)
             result_mask[atom_indices] = True
-            return result_mask
+            return result_mask  # type: ignore[no-any-return]
         else:
             # Fall back to direct calculation
             distances = np.linalg.norm(structure.coord - self.center, axis=1)
-            return distances <= self.radius
+            return distances <= self.radius  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return f"sphere center {self.center} radius {self.radius}"
@@ -584,7 +584,7 @@ class CenterOfGeometryExpression(SelectionExpression):
         ref_indices = np.where(ref_mask)[0]
 
         if len(ref_indices) == 0:
-            return np.zeros(structure.n_atoms, dtype=bool)
+            return np.zeros(structure.n_atoms, dtype=bool)  # type: ignore[no-any-return]
 
         if structure.has_spatial_index():
             # Use Structure's spatial indexing
@@ -593,13 +593,13 @@ class CenterOfGeometryExpression(SelectionExpression):
             )
             result_mask = np.zeros(structure.n_atoms, dtype=bool)
             result_mask[atom_indices] = True
-            return result_mask
+            return result_mask  # type: ignore[no-any-return]
         else:
             # Fall back to manual COG calculation
             ref_coords = structure.coord[ref_indices]
             cog = np.mean(ref_coords, axis=0)
             distances = np.linalg.norm(structure.coord - cog, axis=1)
-            return distances <= self.distance
+            return distances <= self.distance  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         return f"cog ({self.selection!r}) {self.distance}"

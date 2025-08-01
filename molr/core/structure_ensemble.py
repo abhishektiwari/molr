@@ -6,7 +6,7 @@ with multiple frames, using memory-efficient storage where annotations are share
 across frames and only coordinates vary.
 """
 
-from typing import List, Optional, Union
+from typing import Any, List, Optional, Union
 
 import numpy as np
 
@@ -302,7 +302,7 @@ class StructureEnsemble:
         """Return number of frames."""
         return self.n_frames
 
-    def __iter__(self):
+    def __iter__(self) -> Any:
         """Iterate over frames as Structure objects."""
         for i in range(self.n_frames):
             yield self[i]
@@ -319,7 +319,7 @@ class StructureEnsemble:
         """
         if not (0 <= frame_index < self.n_frames):
             raise IndexError(f"Frame index {frame_index} out of range")
-        return self.coords[frame_index].copy()
+        return self.coords[frame_index].copy()  # type: ignore[no-any-return]
 
     def set_frame_coords(self, frame_index: int, coords: np.ndarray) -> None:
         """
@@ -390,7 +390,7 @@ class StructureEnsemble:
                 diff = coords_sel - ref_coords_sel
                 rmsd_values[i] = np.sqrt(np.mean(np.sum(diff**2, axis=1)))
 
-        return rmsd_values
+        return rmsd_values  # type: ignore[no-any-return]
 
     def __repr__(self) -> str:
         """String representation."""

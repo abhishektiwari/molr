@@ -74,7 +74,7 @@ class SelectionParser:
         - "byres (ligand and within 5 of protein)"
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the parser with grammar rules."""
         self._build_grammar()
 
@@ -168,9 +168,9 @@ class SelectionParser:
         resid_value = resid_range | integer
         resid_list = Group(RESID + ZeroOrMore(resid_value))
 
-        def parse_resid(tokens):
+        def parse_resid(tokens: Any) -> Any:
             """Parse residue ID selection."""
-            values = []
+            values: List[int] = []
             i = 1
             while i < len(tokens[0]):
                 current = tokens[0][i]
@@ -194,7 +194,7 @@ class SelectionParser:
         chain_chars = Word(alphanums)
         chain_list = Group(CHAIN + ZeroOrMore(chain_chars))
 
-        def parse_chain(tokens):
+        def parse_chain(tokens: Any) -> Any:
             """Parse chain selection."""
             chains = []
             for item in tokens[0][1:]:
@@ -212,9 +212,9 @@ class SelectionParser:
         index_value = index_range | integer
         index_list = Group(INDEX + ZeroOrMore(index_value))
 
-        def parse_index(tokens):
+        def parse_index(tokens: Any) -> Any:
             """Parse index selection."""
-            values = []
+            values: List[Union[int, slice]] = []
             i = 1
             while i < len(tokens[0]):
                 if i + 2 < len(tokens[0]) and isinstance(tokens[0][i + 1], str):
@@ -227,7 +227,7 @@ class SelectionParser:
                         values.append(slice(start, end, step))
                         i += 5
                     else:
-                        values.extend(range(start, end))
+                        values.extend(list(range(start, end)))
                         i += 3
                 else:
                     # Single value
@@ -236,7 +236,18 @@ class SelectionParser:
 
             if len(values) == 1 and isinstance(values[0], slice):
                 return IndexExpression(values[0])
-            return IndexExpression(values)
+            # Convert to list of ints, expanding slices
+            int_values = []
+            for v in values:
+                if isinstance(v, slice):
+                    # Expand slice to list of ints
+                    start = v.start if v.start is not None else 0
+                    stop = v.stop if v.stop is not None else 0
+                    step = v.step if v.step is not None else 1
+                    int_values.extend(list(range(start, stop, step)))
+                else:
+                    int_values.append(v)
+            return IndexExpression(int_values)
 
         index_selection = index_list.setParseAction(parse_index)
 
@@ -297,7 +308,7 @@ class SelectionParser:
             PPOptional(AND) + (atomic_selection | not_expr)
         )
 
-        def parse_and(tokens):
+        def parse_and(tokens: Any) -> Any:
             """Parse AND expressions."""
             if len(tokens) == 1:
                 return tokens[0]
@@ -313,7 +324,7 @@ class SelectionParser:
         # OR expression
         or_expr = and_expr + ZeroOrMore(OR + and_expr)
 
-        def parse_or(tokens):
+        def parse_or(tokens: Any) -> Any:
             """Parse OR expressions."""
             if len(tokens) == 1:
                 return tokens[0]
@@ -345,7 +356,7 @@ class SelectionParser:
         """
         try:
             result = self.grammar.parseString(selection_string, parseAll=True)
-            return result[0]
+            return result[0]  # type: ignore[no-any-return]
         except ParseException as e:
             # Enhance error message
             col = e.column

@@ -104,7 +104,7 @@ class SelectionEngine:
             Array of atom indices
         """
         mask = self.select(structure, selection)
-        return np.where(mask)[0]
+        return np.where(mask)[0]  # type: ignore[no-any-return]
 
     def _get_or_parse(self, selection_string: str) -> SelectionExpression:
         """

@@ -79,20 +79,11 @@ class CCDDataManager:
                 try:
                     urllib.request.urlretrieve(url, file_path)
                     print(f"Successfully downloaded {description} to {file_path}")
-                    # Update config with successful download
-                    if config:
-                        from datetime import datetime
-
-                        config.update_ccd_status(True, datetime.now().isoformat())
                 except Exception as e:
                     print(f"Error downloading {description}: {e}")
                     return False
             else:
                 print(f"Found existing {description} at {file_path}")
-
-        # Update config that files are present
-        if config:
-            config.update_ccd_status(True)
 
         return True
 
@@ -252,6 +243,8 @@ class CCDDataManager:
         if not self.load_atoms_data():
             return []
 
+        if self._atoms_data is None:
+            return []
         return self._atoms_data.get(comp_id, [])
 
     def get_component_bonds(self, comp_id: str) -> List[Dict]:
@@ -267,6 +260,8 @@ class CCDDataManager:
         if not self.load_bonds_data():
             return []
 
+        if self._bonds_data is None:
+            return []
         return self._bonds_data.get(comp_id, [])
 
     def get_atom_by_id(self, comp_id: str, atom_id: str) -> Optional[Dict]:
@@ -283,6 +278,8 @@ class CCDDataManager:
         if not self.load_atoms_data():
             return None
 
+        if self._atom_lookup is None:
+            return None
         return self._atom_lookup.get((comp_id, atom_id))
 
     def get_bonds_involving_atom(self, comp_id: str, atom_id: str) -> List[Dict]:
@@ -310,12 +307,12 @@ class CCDDataManager:
         Returns:
             Set of component identifiers
         """
-        components = set()
+        components: Set[str] = set()
 
-        if self.load_atoms_data():
+        if self.load_atoms_data() and self._atoms_data is not None:
             components.update(self._atoms_data.keys())
 
-        if self.load_bonds_data():
+        if self.load_bonds_data() and self._bonds_data is not None:
             components.update(self._bonds_data.keys())
 
         return components
@@ -334,7 +331,7 @@ class CCDDataManager:
         bonds = self.get_component_bonds(comp_id)
 
         # Count bond orders and aromatic bonds
-        bond_orders = {}
+        bond_orders: Dict[str, int] = {}
         aromatic_count = 0
 
         for bond in bonds:
@@ -387,7 +384,7 @@ class CCDDataManager:
                     bonds.append(bond_info)
 
                 # Count bond orders
-                bond_orders = {}
+                bond_orders: Dict[str, int] = {}
                 for bond in bonds_raw:
                     order = bond.get("value_order", "unknown")
                     bond_orders[order] = bond_orders.get(order, 0) + 1

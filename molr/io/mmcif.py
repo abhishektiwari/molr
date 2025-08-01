@@ -79,7 +79,7 @@ class mmCIFParser:
     - Chemical bond information from mmCIF data
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the mmCIF parser."""
         self._current_structure: Optional[Structure] = None
         self._current_bonds: Optional[BondList] = None
@@ -101,7 +101,7 @@ class mmCIFParser:
         try:
             with open(filename, "r") as file_handle:
                 reader = PdbxReader(file_handle)
-                data_containers = []
+                data_containers: List[Any] = []
                 reader.read(data_containers)
 
                 if not data_containers:
@@ -178,7 +178,7 @@ class mmCIFParser:
         Returns:
             List of models, each containing atom records for that model
         """
-        models = {}  # model_id -> atom_records
+        models: Dict[int, List] = {}  # model_id -> atom_records
 
         # Get the number of rows
         row_count = atom_site_obj.getRowCount()

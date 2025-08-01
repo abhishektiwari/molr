@@ -25,7 +25,7 @@ from ..core.structure import Structure
 from ..core.structure_ensemble import StructureEnsemble
 
 try:
-    import pdbreader  # type: ignore
+    import pdbreader
 except ImportError:
     raise ImportError(
         "pdbreader package is required for PDB parsing. Install with: pip install pdbreader"
@@ -79,7 +79,7 @@ class PDBParser:
     - Full PDB annotation support
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the PDB parser."""
         self._current_structure: Optional[Structure] = None
         self._current_bonds: Optional[BondList] = None
@@ -167,7 +167,7 @@ class PDBParser:
         Returns:
             List of models, each containing atom records for that model
         """
-        models = {}  # model_id -> atom_records
+        models: Dict[int, List] = {}  # model_id -> atom_records
 
         # Process ATOM records
         if "ATOM" in pdb_data and len(pdb_data["ATOM"]) > 0:

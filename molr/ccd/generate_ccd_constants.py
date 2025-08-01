@@ -31,7 +31,7 @@ except ImportError:
     from molr.constants.pdb_constants import RESIDUES
 
 
-def main():
+def main() -> int:
     """
     Main function for generating CCD bond constants.
 
