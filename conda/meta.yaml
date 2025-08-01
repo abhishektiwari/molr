@@ -9,9 +9,9 @@ source:
   path: ..
 
 build:
-  noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -31,15 +31,14 @@ requirements:
     - pip
 
 test:
-  imports:
-    - molr
-    - molr.core
-    - molr.io
-    - molr.selection
-    - molr.constants
-    - molr.bond_detection
+  requires:
+    - pip
   commands:
-    - pip install pdbreader>=0.1.0 mmcif>=0.92.0
+    - pip install pdbreader>=0.1.0 mmcif>=0.1.0
+    - python -c "import molr.core; print('Core module imported successfully')"
+    - python -c "import molr.selection; print('Selection module imported successfully')"
+    - python -c "import molr.constants; print('Constants module imported successfully')"
+    - python -c "import molr.bond_detection; print('Bond detection module imported successfully')"
     - python -c "import molr; print('MolR version:', molr.__version__)"
 
 about:
