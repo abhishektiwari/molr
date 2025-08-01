@@ -64,7 +64,6 @@ Issues = "https://github.com/abhishektiwari/molr/issues"
 
 [tool.setuptools_scm]
 write_to = "molr/_version.py"
-fallback_version = "0.1.0.dev0"
 version_scheme = "no-guess-dev"
 local_scheme = "no-local-version"
 
