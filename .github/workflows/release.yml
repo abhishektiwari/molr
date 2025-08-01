@@ -31,8 +31,11 @@ jobs:
       if: github.event_name == 'pull_request'
       id: generate_pr_version
       run: |
-        # Get base version from latest tag or default to 0.0.1
-        BASE_VERSION=$(git describe --tags --abbrev=0 2>/dev/null | sed 's/^v//' || echo "0.0.1")
+        # Get base version from latest tag or default to 0.0.0
+        BASE_VERSION=$(git describe --tags --abbrev=0 2>/dev/null | sed 's/^v//' || true)
+        if [ -z "$BASE_VERSION" ]; then
+          BASE_VERSION="0.0.0"
+        fi
         
         # Generate PEP 440 compatible pre-release version
         SHORT_SHA=$(git rev-parse --short HEAD)
