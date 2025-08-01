@@ -9,15 +9,14 @@
     <circle cx="65" cy="40" r="6" fill="rgb(62, 59, 246)"/>
     <circle cx="45" cy="55" r="5" fill="rgb(62, 59, 246)"/>
   </g>
-  <text style="fill: rgb(62, 59, 246); font-family: Arial, sans-serif; font-size: 36px; font-weight: 700; white-space: pre;" x="42" y="49">
-    molr
+  <text style="fill: rgb(62, 59, 246); font-family: Arial, sans-serif; font-size: 36px; font-weight: 700; white-space: pre;" x="32" y="49">
+    MolR
   </text>
-  <g transform="matrix(1, 0, 0, 1, 177, 33)" style="transform-origin: -2px 1px;">
-    <circle cx="0" cy="0" r="4" fill="rgb(62, 59, 246)" opacity="0.6"/>
-    <circle cx="10" cy="-8" r="3" fill="rgb(62, 59, 246)" opacity="0.6"/>
-    <circle cx="10" cy="8" r="3" fill="rgb(62, 59, 246)" opacity="0.6"/>
-    <line x1="0" y1="0" x2="10" y2="-8" stroke="rgb(62, 59, 246)" stroke-width="1.5" opacity="0.4"/>
-    <line x1="0" y1="0" x2="10" y2="8" stroke="rgb(62, 59, 246)" stroke-width="1.5" opacity="0.4"/>
-  </g>
-  <circle cx="45" cy="40" r="35" fill="none" stroke="rgb(62, 59, 246)" stroke-width="1" opacity="0.3"/>
+  <circle cx="45" cy="40" r="35" fill="none" stroke="rgb(62, 59, 246)" stroke-width="1" opacity="0.8"/>
+  <g transform="matrix(1, 0, 0, 1, 176.813263, 34.144577)" style="transform-origin: -1.81326px -0.144577px;">
+    <circle cx="0" cy="0" r="4" fill="rgb(62, 59, 246)" opacity="0.8"/>
+    <circle cx="10" cy="-8" r="3" fill="rgb(62, 59, 246)" opacity="0.8"/>
+    <circle cx="10" cy="8" r="3" fill="rgb(62, 59, 246)" opacity="0.8"/>
+    <line x1="0" y1="0" x2="10" y2="-8" stroke="rgb(62, 59, 246)" stroke-width="1.5" opacity="0.6"/>
+    <line x1="0" y1="0" x2="10" y2="8" stroke="rgb(62, 59, 246)" stroke-width="1.5" opacity="0.6"/>
 </svg>
