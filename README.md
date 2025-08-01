@@ -196,4 +196,4 @@ MIT License - see LICENSE file for details.
 
 ## Contributing
 
-Contributions welcome! Please see CONTRIBUTING.md for guidelines.
+Contributions welcome! Please see CONTRIBUTING.md for guidelines. 
