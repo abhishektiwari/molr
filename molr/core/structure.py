@@ -5,7 +5,7 @@ This module provides the Structure class,
 for efficient storage and manipulation of molecular structures using NumPy arrays.
 """
 
-from typing import Any, Dict, List, Optional, Tuple, Union, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple, Union
 
 import numpy as np
 

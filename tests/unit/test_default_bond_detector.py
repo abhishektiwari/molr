@@ -5,12 +5,12 @@ Tests the new streamlined bond detection approach that combines
 residue templates, distance-based detection, and file bonds.
 """
 
-import pytest
 import numpy as np
+import pytest
 
-from molr.core.structure import Structure
-from molr.core.bond_list import BondList
 from molr.bond_detection.default_detector import DefaultBondDetector, detect_bonds
+from molr.core.bond_list import BondList
+from molr.core.structure import Structure
 
 
 @pytest.fixture

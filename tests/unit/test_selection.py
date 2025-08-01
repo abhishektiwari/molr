@@ -6,17 +6,12 @@ Tests cover functionality based on acceptance criteria from requirements.md:
 - AC-101 through AC-150 (Selection parsing)
 """
 
-import pytest
 import numpy as np
+import pytest
 from pyparsing import ParseException
 
 from molr.core.structure import Structure
-from molr.selection import (
-    SelectionEngine,
-    SelectionParser,
-    select,
-    select_atoms,
-    # Expression classes
+from molr.selection import (  # Expression classes
     AllExpression,
     AndExpression,
     AromaticExpression,
@@ -36,8 +31,12 @@ from molr.selection import (
     ResidueIdExpression,
     ResidueNameExpression,
     RNAExpression,
+    SelectionEngine,
+    SelectionParser,
     SidechainExpression,
     WaterExpression,
+    select,
+    select_atoms,
 )
 
 

@@ -6,7 +6,7 @@ Contains atomic data, PDB constants, bond parameters and other chemical constant
 
 from .atomic_data import AtomicData
 from .pdb_constants import *
-from .residue_bonds import get_residue_bonds, RESIDUES_WITH_BOND_DATA
+from .residue_bonds import RESIDUES_WITH_BOND_DATA, get_residue_bonds
 
 __all__ = [
     "AtomicData",

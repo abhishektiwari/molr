@@ -19,10 +19,10 @@ from ..constants.pdb_constants import (
     RNA_RESIDUES,
     WATER_MOLECULES,
 )
-from ..utilities import pdb_atom_to_element
 from ..core.bond_list import BondList, BondOrder
 from ..core.structure import Structure
 from ..core.structure_ensemble import StructureEnsemble
+from ..utilities import pdb_atom_to_element
 
 try:
     import pdbreader
@@ -115,8 +115,8 @@ class PDBParser:
         Returns:
             Structure object with all atoms and annotations
         """
-        import tempfile
         import os
+        import tempfile
 
         try:
             # Write to temporary file since pdbreader expects file path

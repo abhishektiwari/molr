@@ -5,8 +5,9 @@ Tests cover core functionality based on acceptance criteria from requirements.md
 - AC-001 through AC-015 (Structure core functionality)
 """
 
-import pytest
 import numpy as np
+import pytest
+
 from molr.core.structure import Structure
 
 

@@ -5,8 +5,9 @@ Tests cover core functionality based on acceptance criteria from requirements.md
 - AC-016 through AC-030 (BondList functionality)
 """
 
-import pytest
 import numpy as np
+import pytest
+
 from molr.core.bond_list import BondList, both_atoms_in_set
 
 

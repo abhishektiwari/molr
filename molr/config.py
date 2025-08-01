@@ -33,4 +33,3 @@ def get_ccd_data_path() -> Path:
     ccd_dir = molr_dir / "ccd-data"
     ccd_dir.mkdir(exist_ok=True)
     return ccd_dir
-

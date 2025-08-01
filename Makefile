@@ -80,9 +80,9 @@ lint:
 
 format:
 	@echo "Formatting with black..."
-	black molr/ tests/ *.py
+	black molr/ tests/
 	@echo "Sorting imports with isort..."
-	isort molr/ tests/ *.py
+	isort molr/ tests/
 
 type-check:
 	@echo "Type checking with mypy..."

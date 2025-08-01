@@ -5,15 +5,16 @@ Tests the mmCIF parser functionality including parsing files,
 string content, multi-model support, and bond information extraction.
 """
 
-import pytest
-import tempfile
 import os
+import tempfile
 from pathlib import Path
 
-from molr.io.mmcif import mmCIFParser
+import pytest
+
+from molr.core.bond_list import BondList
 from molr.core.structure import Structure
 from molr.core.structure_ensemble import StructureEnsemble
-from molr.core.bond_list import BondList
+from molr.io.mmcif import mmCIFParser
 
 
 @pytest.fixture
@@ -169,8 +170,8 @@ class TestmmCIFParser:
     def test_safe_conversion_functions(self):
         """Test safe conversion utility functions."""
         from molr.io.mmcif import (
-            _safe_convert_int,
             _safe_convert_float,
+            _safe_convert_int,
             _safe_convert_str,
         )
 

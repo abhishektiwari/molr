@@ -4,15 +4,16 @@ Unit tests for the PDB I/O module.
 Tests cover PDB parsing and writing functionality for the space module.
 """
 
-import pytest
-import numpy as np
-import tempfile
 import os
+import tempfile
 
-from molr.io.pdb import PDBParser
+import numpy as np
+import pytest
+
+from molr.core.bond_list import BondList
 from molr.core.structure import Structure
 from molr.core.structure_ensemble import StructureEnsemble
-from molr.core.bond_list import BondList
+from molr.io.pdb import PDBParser
 
 
 @pytest.fixture
@@ -195,5 +196,3 @@ END"""
         """Test that StructureEnsemble.from_pdb_string rejects single-model PDB."""
         with pytest.raises(ValueError, match="single model"):
             StructureEnsemble.from_pdb_string(sample_pdb_content)
-
-

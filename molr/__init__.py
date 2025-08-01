@@ -19,22 +19,22 @@ except ImportError:
     __version__ = "0.0.0+unknown"
 __author__ = "Abhishek Tiwari"
 
-# Import core classes
-from .core.structure import Structure
-from .core.structure_ensemble import StructureEnsemble
+# Import bond detection
+from .bond_detection import detect_bonds
 from .core.bond_list import BondList, BondOrder
 from .core.connectivity import BondDetectionMethod
 from .core.realm import Realm
 
-# Import selection functionality
-from .selection import select
+# Import core classes
+from .core.structure import Structure
+from .core.structure_ensemble import StructureEnsemble
+from .io.mmcif import mmCIFParser
 
 # Import I/O parsers
 from .io.pdb import PDBParser
-from .io.mmcif import mmCIFParser
 
-# Import bond detection
-from .bond_detection import detect_bonds
+# Import selection functionality
+from .selection import select
 
 __all__ = [
     # Core classes

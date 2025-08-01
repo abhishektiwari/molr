@@ -223,7 +223,9 @@ class BondList:
             if hasattr(self, prop_name):
                 # Use _ensure_property for lazy initialization of optional properties
                 if prop_name == "detection_method":
-                    prop_array = self._ensure_property("detection_method", dtype="U10", default_value="unknown")
+                    prop_array = self._ensure_property(
+                        "detection_method", dtype="U10", default_value="unknown"
+                    )
                     prop_array[bond_idx] = value
                 else:
                     prop_array = getattr(self, prop_name)
