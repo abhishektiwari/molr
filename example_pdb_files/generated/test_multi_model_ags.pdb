@@ -1,0 +1,72 @@
+HEADER    TEST MULTI-MODEL PEPTIDE                         01-JAN-24   XXXX
+TITLE     THREE CONFORMATIONS OF ALA-GLY-SER TRIPEPTIDE
+REMARK   2 RESOLUTION.    NOT APPLICABLE.
+REMARK   3
+REMARK   3 REFINEMENT.
+REMARK   3   PROGRAM     : MOLR TEST
+REMARK   3   AUTHORS     : MOLR
+REMARK   3
+REMARK 210 EXPERIMENTAL DETAILS
+REMARK 210  EXPERIMENT TYPE                : THEORETICAL MODEL
+REMARK 210  NUMBER OF MODELS               : 3
+CRYST1   50.000   50.000   50.000  90.00  90.00  90.00 P 1           1
+MODEL        1
+ATOM      1  N   ALA A   1       0.000   0.000   0.000  1.00 20.00           N
+ATOM      2  CA  ALA A   1       1.458   0.000   0.000  1.00 20.00           C
+ATOM      3  C   ALA A   1       2.009   1.420   0.000  1.00 20.00           C
+ATOM      4  O   ALA A   1       1.221   2.373   0.000  1.00 20.00           O
+ATOM      5  CB  ALA A   1       1.970  -0.790  -1.201  1.00 20.00           C
+ATOM      6  N   GLY A   2       3.326   1.634   0.000  1.00 20.00           N
+ATOM      7  CA  GLY A   2       3.959   2.942   0.000  1.00 20.00           C
+ATOM      8  C   GLY A   2       5.417   2.826   0.000  1.00 20.00           C
+ATOM      9  O   GLY A   2       6.035   1.758   0.000  1.00 20.00           O
+ATOM     10  N   SER A   3       6.000   3.900   0.000  1.00 20.00           N
+ATOM     11  CA  SER A   3       7.435   3.900   0.000  1.00 20.00           C
+ATOM     12  C   SER A   3       8.035   5.300   0.000  1.00 20.00           C
+ATOM     13  O   SER A   3       7.300   6.200   0.000  1.00 20.00           O
+ATOM     14  OXT SER A   3       9.200   5.400   0.000  1.00 20.00           O
+ATOM     15  CB  SER A   3       7.935   3.000   1.200  1.00 20.00           C
+ATOM     16  OG  SER A   3       7.535   1.700   1.200  1.00 20.00           O
+TER      17      SER A   3
+ENDMDL
+MODEL        2
+ATOM      1  N   ALA A   1       0.100   0.200  -0.100  1.00 20.00           N
+ATOM      2  CA  ALA A   1       1.536   0.200  -0.353  1.00 20.00           C
+ATOM      3  C   ALA A   1       2.078   1.620  -0.449  1.00 20.00           C
+ATOM      4  O   ALA A   1       1.302   2.573  -0.312  1.00 20.00           O
+ATOM      5  CB  ALA A   1       1.832  -0.590  -1.625  1.00 20.00           C
+ATOM      6  N   GLY A   2       3.375   1.834  -0.678  1.00 20.00           N
+ATOM      7  CA  GLY A   2       3.999   3.142  -0.787  1.00 20.00           C
+ATOM      8  C   GLY A   2       5.435   3.026  -1.041  1.00 20.00           C
+ATOM      9  O   GLY A   2       6.043   1.958  -1.148  1.00 20.00           O
+ATOM     10  N   SER A   3       6.009   4.100  -1.142  1.00 20.00           N
+ATOM     11  CA  SER A   3       7.422   4.100  -1.391  1.00 20.00           C
+ATOM     12  C   SER A   3       8.013   5.500  -1.495  1.00 20.00           C
+ATOM     13  O   SER A   3       7.289   6.400  -1.368  1.00 20.00           O
+ATOM     14  OXT SER A   3       9.160   5.600  -1.698  1.00 20.00           O
+ATOM     15  CB  SER A   3       8.123   3.200  -0.296  1.00 20.00           C
+ATOM     16  OG  SER A   3       7.729   1.900  -0.227  1.00 20.00           O
+TER      17      SER A   3
+ENDMDL
+MODEL        3
+ATOM      1  N   ALA A   1      -0.200   0.100   0.300  1.00 20.00           N
+ATOM      2  CA  ALA A   1       1.208  -0.277   0.300  1.00 20.00           C
+ATOM      3  C   ALA A   1       2.108   0.952   0.300  1.00 20.00           C
+ATOM      4  O   ALA A   1       1.594   2.076   0.300  1.00 20.00           O
+ATOM      5  CB  ALA A   1       1.498  -1.173  -0.901  1.00 20.00           C
+ATOM      6  N   GLY A   2       3.436   0.817   0.300  1.00 20.00           N
+ATOM      7  CA  GLY A   2       4.386   1.917   0.300  1.00 20.00           C
+ATOM      8  C   GLY A   2       5.764   1.428   0.300  1.00 20.00           C
+ATOM      9  O   GLY A   2       6.084   0.236   0.300  1.00 20.00           O
+ATOM     10  N   SER A   3       6.605   2.314   0.300  1.00 20.00           N
+ATOM     11  CA  SER A   3       7.991   1.943   0.300  1.00 20.00           C
+ATOM     12  C   SER A   3       8.933   3.140   0.300  1.00 20.00           C
+ATOM     13  O   SER A   3       8.456   4.199   0.300  1.00 20.00           O
+ATOM     14  OXT SER A   3      10.084   2.935   0.300  1.00 20.00           O
+ATOM     15  CB  SER A   3       8.241   0.944   1.500  1.00 20.00           C
+ATOM     16  OG  SER A   3       7.518  -0.208   1.500  1.00 20.00           O
+TER      17      SER A   3
+ENDMDL
+CONECT    3    6
+CONECT    8   10
+END

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <g id="molecule">
+    <line stroke="rgb(62, 59, 246)" stroke-width="2" opacity="0.8">
+      <animate attributeName="x1" values="25;23;25" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="y1" values="40;40;40" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="45;45;45" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="25;22;25" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line stroke="rgb(62, 59, 246)" stroke-width="2" opacity="0.8">
+      <animate attributeName="x1" values="45;45;45" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="y1" values="25;22;25" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="65;67;65" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="40;40;40" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line stroke="rgb(62, 59, 246)" stroke-width="2" opacity="0.8">
+      <animate attributeName="x1" values="45;45;45" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="y1" values="25;22;25" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="45;45;45" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="y2" values="55;58;55" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <circle r="6" fill="rgb(62, 59, 246)">
+      <animate attributeName="cx" values="25;23;25" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="40;40;40" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="6;7;6" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="8" fill="rgb(62, 59, 246)">
+      <animate attributeName="cx" values="45;45;45" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="25;22;25" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="8;10;8" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0.7;1" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="6" fill="rgb(62, 59, 246)">
+      <animate attributeName="cx" values="65;67;65" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="40;40;40" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="6;7;6" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+      <animate attributeName="opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle r="5" fill="rgb(62, 59, 246)">
+      <animate attributeName="cx" values="45;45;45" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="55;58;55" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="5;6;5" dur="1.8s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="opacity" values="1;0.8;1" dur="1.8s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+  </g>
+  <text style="fill: rgb(62, 59, 246); font-family: Arial, sans-serif; font-size: 36px; font-weight: 700; white-space: pre;" x="32" y="50">
+    MolR
+  </text>
+  <circle cx="45" cy="40" r="35" fill="none" stroke="rgb(62, 59, 246)" stroke-width="1" opacity="0.8"/>
+  <g transform="matrix(1, 0, 0, 1, 176.813263, 34.144577)" style="transform-origin: -1.81326px -0.144577px;">
+    <circle cx="0" cy="0" r="4" fill="rgb(62, 59, 246)" opacity="0.8"/>
+    <circle cx="10" cy="-8" r="3" fill="rgb(62, 59, 246)" opacity="0.8"/>
+    <circle cx="10" cy="8" r="3" fill="rgb(62, 59, 246)" opacity="0.8"/>
+    <line x1="0" y1="0" x2="10" y2="-8" stroke="rgb(62, 59, 246)" stroke-width="1.5" opacity="0.6"/>
+    <line x1="0" y1="0" x2="10" y2="8" stroke="rgb(62, 59, 246)" stroke-width="1.5" opacity="0.6"/>
+  </g>
+</svg>

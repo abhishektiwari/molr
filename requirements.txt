@@ -1,0 +1,11 @@
+# Core dependencies
+numpy>=1.20.0
+scipy>=1.7.0
+pyparsing>=3.0.0
+
+# File format support
+pdbreader>=0.1.0
+mmcif>=0.92.0
+
+# Optional dependencies for enhanced functionality
+# Install with: pip install -r requirements-dev.txt
