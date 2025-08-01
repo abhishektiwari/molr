@@ -15,12 +15,14 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python >=3.9
     - pip
     - setuptools
     - numpy >=1.20.0
     - scipy >=1.7.0
     - pyparsing >=3.0.0
+    - setuptools-scm >=6.2.0
+    - wheel
   run:
     - python >=3.8
     - numpy >=1.20.0
