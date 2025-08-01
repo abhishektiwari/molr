@@ -2,6 +2,8 @@
 
 A high-performance Python package that creates a spatial realm for molecular structures, providing lightning-fast neighbor searches, geometric queries, and spatial operations through integrated KDTree indexing.
 
+![Molr](molr-logo-animated.svg)
+
 ## Features
 
 ### 🚀 **High-Performance Structure Representation**
