@@ -45,7 +45,7 @@ If you plan to contribute to MolR or run tests, install with development depende
 
    git clone https://github.com/abhishektiwari/molr.git
    cd molr
-   pip install -e .[dev]
+   pip install -r requirements-dev.txt
 
 This installs additional tools for development:
 
@@ -67,7 +67,7 @@ Using pyenv (recommended):
 
    pyenv virtualenv 3.10.0 molr
    pyenv activate molr
-   pip install -e .[dev]
+   pip install -r requirements-dev.txt
 
 Using venv:
 
@@ -75,7 +75,7 @@ Using venv:
 
    python -m venv molr-env
    source molr-env/bin/activate  # On Windows: molr-env\\Scripts\\activate
-   pip install -e .[dev]
+   pip install -r requirements-dev.txt
 
 Verifying Installation
 ----------------------
