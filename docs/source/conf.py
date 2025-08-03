@@ -29,6 +29,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx_autodoc_typehints',
     'sphinx_copybutton',
+    'sphinx_toolbox.shields',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -42,6 +43,7 @@ exclude_patterns = []
 html_theme = 'sphinx_book_theme'
 html_static_path = ['_static']
 html_logo = '../../molr-logo-animated.svg'
+html_favicon = '../../favicon.ico'
 
 # Custom CSS files
 html_css_files = [
@@ -138,3 +140,10 @@ typehints_defaults = 'comma'
 autodoc_type_aliases = {
     'BondList': 'molr.BondList',
 }
+
+# -- Shield badges configuration ---------------------------------------------
+
+# GitHub and PyPI information for badges
+github_username = 'abhishektiwari'
+github_repository = 'molr'
+pypi_name = 'molr'

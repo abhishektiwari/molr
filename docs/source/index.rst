@@ -38,6 +38,26 @@ Welcome to MolR's documentation!
    :repository: molr
    :license:
 
+.. image:: https://img.shields.io/github/downloads/abhishektiwari/molr/total?label=GitHub%20Downloads
+   :alt: GitHub Downloads (all assets, all releases)
+   :target: https://github.com/abhishektiwari/molr/releases
+
+.. image:: https://img.shields.io/pepy/dt/molr?label=PyPI%20Downloads
+   :alt: PyPI Downloads
+   :target: https://pypi.org/project/molr/
+
+.. image:: https://codecov.io/gh/abhishektiwari/molr/graph/badge.svg?token=QSKYLB3M1V 
+   :alt: Codecov Coverage
+   :target: https://codecov.io/gh/abhishektiwari/molr
+
+.. image:: https://socket.dev/api/badge/pypi/package/molr/0.0.2?artifact_id=py3-none-any-whl
+   :target: https://socket.dev/pypi/package/molr/overview/0.0.2/py3-none-any-whl
+   :alt: Socket
+
+.. image:: https://www.codefactor.io/repository/github/abhishektiwari/molr/badge
+   :target: https://www.codefactor.io/repository/github/abhishektiwari/molr
+   :alt: CodeFactor
+
 MolR (Molecular Realm for Spatial Indexed Structures) is a high-performance Python package that creates a spatial realm for molecular structures, enabling lightning-fast neighbor searches, geometric queries, and spatial operations through integrated KDTree indexing.
 
 .. toctree::

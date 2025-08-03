@@ -1,37 +1,54 @@
+![Molr](molr.png)
+
+![GitHub Release](https://img.shields.io/github/v/release/abhishektiwari/molr)
+![GitHub Actions Test Workflow Status](https://img.shields.io/github/actions/workflow/status/abhishektiwari/molr/test.yml?label=tests)
+![PyPI - Version](https://img.shields.io/pypi/v/molr)
+![Python Wheels](https://img.shields.io/pypi/wheel/molr)
+![Python Versions](https://img.shields.io/pypi/pyversions/molr?logo=python&logoColor=white)
+![GitHub last commit](https://img.shields.io/github/last-commit/abhishektiwari/molr)
+![PyPI - Status](https://img.shields.io/pypi/status/molr)
+![Conda Version](https://img.shields.io/conda/v/molr/molr)
+![License](https://img.shields.io/github/license/abhishektiwari/molr)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/abhishektiwari/molr/total?label=GitHub%20Downloads)
+![PyPI Downloads](https://img.shields.io/pepy/dt/molr?label=PyPI%20Downloads)
+[![codecov](https://codecov.io/gh/abhishektiwari/molr/graph/badge.svg?token=QSKYLB3M1V)](https://codecov.io/gh/abhishektiwari/molr)
+[![Socket](https://socket.dev/api/badge/pypi/package/molr/0.0.2?artifact_id=py3-none-any-whl)](https://socket.dev/pypi/package/molr/overview/0.0.2/py3-none-any-whl)
+[![CodeFactor](https://www.codefactor.io/repository/github/abhishektiwari/molr/badge/main)](https://www.codefactor.io/repository/github/abhishektiwari/molr/overview/main)
+
 # MolR - Molecular Realm for Spatial Indexed Structures
 
 A high-performance Python package that creates a spatial realm for molecular structures, providing lightning-fast neighbor searches, geometric queries, and spatial operations through integrated KDTree indexing.
 
-![Molr](molr-logo-animated.svg)
 
 ## Features
 
-### 🚀 **High-Performance Structure Representation**
-- **NumPy-based Structure class** with Structure of Arrays (SoA)
-- **Efficient spatial indexing** with scipy KDTree integration for O(log n) neighbor queries
-- **Memory-efficient trajectory handling** with StructureEnsemble
-- **Lazy initialization** of optional annotations to minimize memory usage
+### High-Performance Structure Representation
+- NumPy-based Structure class with Structure of Arrays (SoA)
+- Efficient spatial indexing with scipy KDTree integration for O(log n) neighbor queries
+- Memory-efficient trajectory handling with StructureEnsemble
+- Lazy initialization of optional annotations to minimize memory usage
 
-### 🔗 **Comprehensive Bond Detection**
-- **Hierarchical bond detection** with multiple providers:
+### Comprehensive Bond Detection
+
+- Hierarchical bond detection with multiple providers:
   - File-based bonds from PDB CONECT records and mmCIF data
   - Template-based detection using standard residue topologies
   - Chemical Component Dictionary (CCD) lookup for ligands
   - Distance-based detection with Van der Waals radii
-- **Intelligent fallback system** ensures complete bond coverage
-- **Partial processing support** for incremental bond detection
+- Intelligent fallback system ensures complete bond coverage
+- Partial processing support for incremental bond detection
 
-### 🎯 **Powerful Selection Language**
-- **MDAnalysis/VMD-inspired syntax** for complex atom queries
-- **Spatial selections** with `within`, `around`, and center-of-geometry queries
-- **Boolean operations** (and, or, not) for combining selections
-- **Residue-based selections** with `byres` modifier
+### Powerful Selection Language
+- MDAnalysis/VMD-inspired syntax for complex atom queries
+- Spatial selections with `within`, `around`, and center-of-geometry queries
+- Boolean operations (and, or, not) for combining selections
+- Residue-based selections with `byres` modifier
 
-### 📁 **Multi-Format I/O Support**
-- **PDB format** with multi-model support and CONECT record parsing
-- **mmCIF format** with chemical bond information extraction
-- **Auto-detection** of single structures vs. trajectories
-- **String-based parsing** for in-memory structure creation
+### Multi-Format I/O Support
+- PDB format with multi-model support and CONECT record parsing
+- mmCIF format with chemical bond information extraction
+- Auto-detection of single structures vs. trajectories
+- String-based parsing for in-memory structure creation
 
 ## Installation
 
@@ -46,145 +63,6 @@ cd molr
 pip install -e .[dev]
 ```
 
-## Quick Start
-
-### Basic Structure Loading and Analysis
-
-```python
-import molr
-
-# Load structure from PDB file
-structure = molr.Structure.from_pdb("protein.pdb")
-print(f"Loaded {structure.n_atoms} atoms")
-
-# Detect bonds automatically
-bonds = structure.detect_bonds()
-print(f"Detected {len(bonds)} bonds")
-
-# Use selection language
-ca_atoms = structure.select("name CA")
-active_site = structure.select("within 5.0 of (resname HIS)")
-protein_backbone = structure.select("protein and backbone")
-```
-
-### Spatial Queries and Neighbor Finding
-
-```python
-# Fast spatial queries with built-in KDTree indexing
-neighbors = structure.get_neighbors_within(atom_idx=100, radius=5.0)
-atoms_in_sphere = structure.get_atoms_within_sphere([10, 15, 20], radius=8.0)
-
-# Center of geometry-based selections
-ligand = structure.select("resname LIG")
-nearby = structure.get_atoms_within_cog_sphere(ligand, radius=10.0)
-
-# Inter-selection contacts
-protein = structure.select("protein")
-contacts = structure.get_atoms_between_selections(protein, ligand, max_distance=4.0)
-```
-
-### Bond Detection and Analysis
-
-```python
-from molr import BondDetector
-
-# Configure bond detection
-detector = BondDetector(
-    enable_residue_templates=True,
-    enable_ccd_lookup=True,
-    enable_distance_detection=True,
-    vdw_factor=0.75
-)
-
-# Detect bonds with detailed statistics
-bonds, stats = detector.detect_bonds_with_stats(structure)
-print(f"Bond detection stats: {stats}")
-
-# Access different bond sources
-file_bonds = structure.file_bonds  # From PDB CONECT records
-all_bonds = structure.bonds        # Complete bond set
-```
-
-### Multi-Model Trajectories
-
-```python
-# Load trajectory from multi-model PDB
-ensemble = molr.StructureEnsemble.from_pdb("trajectory.pdb")
-print(f"Loaded {ensemble.n_models} models with {ensemble.n_atoms} atoms each")
-
-# Access individual frames
-first_frame = ensemble[0]  # Returns Structure object
-last_frame = ensemble[-1]
-
-# Analyze trajectory
-centers = [model.get_center() for model in ensemble]
-```
-
-## Advanced Usage
-
-### Custom Bond Detection
-
-```python
-from molr.bond_detection import (
-    ResidueBondProvider,
-    CCDBondProvider, 
-    DistanceBondProvider
-)
-
-# Create custom detection pipeline
-providers = [
-    ResidueBondProvider(),      # Standard residues first
-    CCDBondProvider(),          # CCD lookup for ligands  
-    DistanceBondProvider(vdw_factor=0.8)  # Distance fallback
-]
-
-# Apply in sequence
-final_bonds = BondList()
-for provider in providers:
-    if provider.is_applicable(structure):
-        bonds = provider.detect_bonds(structure, existing_bonds=final_bonds)
-        final_bonds.extend(bonds)
-```
-
-### Structure Manipulation
-
-```python
-# Subset structures
-protein_only = structure[structure.select("protein")]
-chain_a = structure[structure.chain_id == "A"]
-
-# Coordinate transformations  
-structure.translate([10.0, 0.0, 0.0])
-structure.center_at_origin()
-
-# Add custom annotations
-structure.add_annotation("custom_prop", dtype=np.float32, default_value=1.0)
-```
-
-## Performance
-
-- **Spatial indexing**: O(log n) neighbor queries vs O(n²) brute force
-- **Memory efficient**: SoA design minimizes memory overhead
-- **Vectorized operations**: NumPy-based computations throughout
-- **Lazy evaluation**: Optional data loaded only when needed
-
-## API Reference
-
-### Core Classes
-- `Structure`: Single molecular structure with spatial indexing
-- `StructureEnsemble`: Multi-model trajectory representation  
-- `BondList`: Efficient bond storage and manipulation
-- `BondDetector`: Configurable hierarchical bond detection
-
-### I/O Parsers
-- `PDBParser`: PDB format with CONECT record support
-- `mmCIFParser`: mmCIF format with bond information
-
-### Selection System
-- `select()`: Parse and evaluate selection expressions
-- Spatial expressions: `within`, `around`, `cog`
-- Boolean operators: `and`, `or`, `not`
-
 ## Requirements
 
 - Python ≥3.8
@@ -192,10 +70,39 @@ structure.add_annotation("custom_prop", dtype=np.float32, default_value=1.0)
 - SciPy ≥1.7.0 (for spatial indexing)
 - pyparsing ≥3.0.0 (for selection language)
 
+## Usage
+
+Please review [Molr documentation](https://hbat.abhishek-tiwari.com/) for more details on how to use Molr for various use cases.
+
+### Quick Example
+
+```python
+import molr
+
+# Load a structure
+structure = molr.Structure.from_pdb("protein.pdb")
+
+# Detect bonds
+bonds = structure.detect_bonds()
+
+# Use selection language
+active_site = structure.select("within 5.0 of (resname HIS)")
+
+# Fast spatial queries
+neighbors = structure.get_neighbors_within(atom_idx=100, radius=5.0)
+```
+
+
 ## License
 
-MIT License - see LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Contributing
+## Contributing 
 
-Contributions welcome! Please see CONTRIBUTING.md for guidelines. 
+See our [contributing guide](CONTRIBUTING.md) and [development guide](https://hbat.abhishek-tiwari.com/development). At a high-level,
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request

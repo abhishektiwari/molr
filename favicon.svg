@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 5 70 70" width="70px" height="70px">
+  <circle cx="45" cy="40" r="35" fill="none" stroke="rgb(62, 59, 246)" stroke-width="1" opacity="0.8"/>
+  <g id="molecule" transform="matrix(1, 0, 0, 1, 2.139143, 0.86281)">
+    <line x1="25" y1="40" x2="45" y2="25" stroke="rgb(62, 59, 246)" stroke-width="2" opacity="0.8"/>
+    <line x1="45" y1="25" x2="65" y2="40" stroke="rgb(62, 59, 246)" stroke-width="2" opacity="0.8"/>
+    <line x1="45" y1="25" x2="45" y2="55" stroke="rgb(62, 59, 246)" stroke-width="2" opacity="0.8"/>
+    <circle cx="25" cy="40" r="6" fill="rgb(62, 59, 246)"/>
+    <circle cx="45" cy="25" r="8" fill="rgb(62, 59, 246)"/>
+    <circle cx="65" cy="40" r="6" fill="rgb(62, 59, 246)"/>
+    <circle cx="45" cy="55" r="5" fill="rgb(62, 59, 246)"/>
+  </g>
+</svg>
